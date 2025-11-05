@@ -214,57 +214,28 @@
         <div class="subtitle">
             <span class="subtitle-text">editor</span>
             <div class="subtitle-contacts">
-                <a href="https://t.me/dasha_sh_canal" class="subtitle-contact-link" target="_blank">telegram</a>
-                <a href="mailto:irandasha@gmail.com" class="subtitle-contact-link">mail</a>
                 <a href="https://www.instagram.com/dasha_sh_canal/" class="subtitle-contact-link" target="_blank">instagram</a>
+                <a href="https://t.me/dasha_sh_canal" class="subtitle-contact-link" target="_blank">telegram</a>
                 <a href="tel:+79165868986" class="subtitle-contact-link">phone</a>
+                <a href="mailto:irandasha@gmail.com" class="subtitle-contact-link">mail</a>
             </div>
         </div>
         <div class="scroll-indicator">↓</div>
     </header>
     
     <div class="filter-tags" id="filter-tags">
-        <a href="#" class="tag active" data-category="all">follow up</a>
-        <a href="#" class="tag" data-category="shorts">shorts & reels</a>
-        <a href="#" class="tag" data-category="art">art video</a>
-        <a href="#" class="tag" data-category="youtube">youtube show</a>
+        <a href="#" class="tag active" data-category="all">youtube</a>
         <a href="#" class="tag" data-category="promo">promo</a>
+        <a href="#" class="tag" data-category="follow-up">follow up</a>
+        <a href="#" class="tag" data-category="art">music/art video</a>
         <a href="#" class="tag" data-category="backstage">backstage</a>
     </div>
     
     <div class="separator"></div>
     
     <div id="content-sections">
-        <div class="section" data-category="follow-up">
-            <div class="section-title">follow up</div>
-            <div class="video-grid" id="follow-up-videos"></div>
-        </div>
-        
-        <div class="separator"></div>
-        
-        <div class="section" data-category="backstage">
-            <div class="section-title">backstage</div>
-            <div class="video-grid" id="backstage-videos"></div>
-        </div>
-        
-        <div class="separator"></div>
-        
-        <div class="section" data-category="shorts">
-            <div class="section-title">shorts & reels</div>
-            <div class="video-grid" id="shorts-videos"></div>
-        </div>
-        
-        <div class="separator"></div>
-        
-        <div class="section" data-category="art">
-            <div class="section-title">art video</div>
-            <div class="video-grid" id="art-videos"></div>
-        </div>
-        
-        <div class="separator"></div>
-        
         <div class="section" data-category="youtube">
-            <div class="section-title">youtube show</div>
+            <div class="section-title">youtube</div>
             <div class="video-grid" id="youtube-videos"></div>
         </div>
         
@@ -274,6 +245,27 @@
             <div class="section-title">promo</div>
             <div class="video-grid" id="promo-videos"></div>
         </div>
+        
+        <div class="separator"></div>
+        
+        <div class="section" data-category="follow-up">
+            <div class="section-title">follow up</div>
+            <div class="video-grid" id="follow-up-videos"></div>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="section" data-category="art">
+            <div class="section-title">music/art video</div>
+            <div class="video-grid" id="art-videos"></div>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="section" data-category="backstage">
+            <div class="section-title">backstage</div>
+            <div class="video-grid" id="backstage-videos"></div>
+        </div>
     </div>
     
     <div class="separator"></div>
@@ -281,10 +273,10 @@
     <div class="contacts">
         <div class="contacts-title">contacts</div>
         <div class="contact-tags">
-            <a href="https://t.me/dasha_sh_canal" class="contact-tag" target="_blank">telegram</a>
-            <a href="mailto:irandasha@gmail.com" class="contact-tag">mail</a>
             <a href="https://www.instagram.com/dasha_sh_canal/" class="contact-tag" target="_blank">instagram</a>
+            <a href="https://t.me/dasha_sh_canal" class="contact-tag" target="_blank">telegram</a>
             <a href="tel:+79165868986" class="contact-tag">phone</a>
+            <a href="mailto:irandasha@gmail.com" class="contact-tag">mail</a>
         </div>
     </div>
 
@@ -292,61 +284,69 @@
     
     <script>
         const videoSections = {
-            'promo': [
-                { type: 'youtube', id: 'qZW25xPU9q4' },
-                { type: 'youtube', id: 'EKYlux0ZtRU' },
-                { type: 'youtube', id: 'xByFGGXiSoo' },
-                { type: 'youtube', id: 'eeIe8f6yQZk' },
-                { type: 'youtube', id: 'eKMT3AO_diM' },
-                { type: 'vimeo', id: '756756260' },
-                { type: 'vimeo', id: '669383502' },
-                { type: 'vimeo', id: '522710223' },
-                { type: 'vimeo', id: '668932521' },
-                { type: 'youtube', id: 'HHIGU1R1N3c' },
-                { type: 'vimeo', id: '668942634' }
-            ],
             'youtube': [
-                { type: 'youtube', id: 'O3nBkD9EjrU' },
-                { type: 'youtube', id: 'K-a9J_Ot3eo' },
-                { type: 'youtube', id: 'V4tq57vIRtI' },
-                { type: 'youtube', id: '8TgBN7fY9ac' },
+                { type: 'youtube', id: 'vn9gXWoygw0' },
                 { type: 'youtube', id: 'H60vvYaWYQg' },
-                { type: 'youtube', id: 'jS9UWbRoUrA' },
-                { type: 'youtube', id: 'ysxZXrXw2M0' },
-                { type: 'youtube', id: 'A1KHmnMkAxw' },
+                { type: 'youtube', id: 'vOgArKKm5VE' }
             ],
-            'shorts': [
-                { type: 'youtube', id: 'FmeGuXKt16U' },
-                { type: 'youtube', id: 't8KweKG__io' },
-                { type: 'youtube', id: '0yTRy2Ut40o' },
-                { type: 'youtube', id: '3tllq7LXjN8' },
-                { type: 'youtube', id: 'YHOf0xni_Ac' },
-                { type: 'youtube', id: 'UPO0_QTw2aQ' }
+            'promo': [
+                { type: 'youtube', id: '0g6axxsnNdk' },
+                { type: 'youtube', id: 'xByFGGXiSoo' },
+                { type: 'youtube', id: 'qZW25xPU9q4' },
+                { type: 'youtube', id: 'eeIe8f6yQZk' },
+                { type: 'vimeo', id: '669383502' },
+                { type: 'vimeo', id: '668932521' },
+                { type: 'vimeo', id: '522710223' }
             ],
-            'art': [
-                { type: 'vimeo', id: '668933164' },
-                { type: 'vimeo', id: '334873436' },
-                { type: 'vimeo', id: '668929927' },
-                { type: 'vimeo', id: '669382180' },
-                { type: 'youtube', id: 'm6m4FNQkptY' }
+            'follow-up': [
+                { type: 'youtube', id: 'PP6R88yvMXM' },
+                { type: 'youtube', id: 's_nIOQcNDhc' },
+                { type: 'youtube', id: 'JFuRHIfsNPc' },
+                { type: 'youtube', id: 'K-a9J_Ot3eo' }
             ],
-            'follow-up': [],
+            'art': [],
             'backstage': []
         };
 
+        function extractYouTubeId(urlOrId) {
+            // If it's already just an ID, return it
+            if (!urlOrId.includes('youtube.com') && !urlOrId.includes('youtu.be') && !urlOrId.includes('http')) {
+                return urlOrId.split('&')[0].split('?')[0];
+            }
+            
+            // Extract ID from various YouTube URL formats
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+                /youtube\.com\/.*[?&]v=([^&\n?#]+)/
+            ];
+            
+            for (const pattern of patterns) {
+                const match = urlOrId.match(pattern);
+                if (match) {
+                    return match[1].split('&')[0].split('?')[0];
+                }
+            }
+            
+            return urlOrId.split('&')[0].split('?')[0];
+        }
+        
         function createVideoEmbed(video) {
             const container = document.createElement('div');
             container.className = 'video-container';
             
             let iframe;
             if (video.type === 'youtube') {
-                iframe = `<iframe src="https://www.youtube.com/embed/${video.id}" 
-                    title="YouTube video player" frameborder="0" 
+                const videoId = extractYouTubeId(video.id);
+                
+                iframe = `<iframe src="https://www.youtube.com/embed/${videoId}" 
+                    title="YouTube video player" 
+                    frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen></iframe>`;
             } else if (video.type === 'vimeo') {
-                iframe = `<iframe src="https://player.vimeo.com/video/${video.id}?h=864d2e9ba6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+                iframe = `<iframe src="https://player.vimeo.com/video/${video.id}?badge=0&autopause=0" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
                     allowfullscreen></iframe>`;
             }
             
