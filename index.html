@@ -264,12 +264,13 @@
     </header>
     
     <div class="filter-tags" id="filter-tags">
-        <a href="#" class="tag active" data-category="all">all</a>
-        <a href="#" class="tag" data-category="art">music/art video</a>
-        <a href="#" class="tag" data-category="youtube">youtube</a>
-        <a href="#" class="tag" data-category="backstage">backstage</a>
-        <a href="#" class="tag" data-category="promo">promo</a>
-        <a href="#" class="tag" data-category="follow-up">follow up</a>
+        <a href="#all" class="tag" data-category="all">all</a>
+        <a href="#art" class="tag" data-category="art">music/art video</a>
+        <a href="#shorts" class="tag" data-category="shorts">shorts</a>
+        <a href="#youtube" class="tag" data-category="youtube">youtube</a>
+        <a href="#backstage" class="tag" data-category="backstage">backstage</a>
+        <a href="#promo" class="tag" data-category="promo">promo</a>
+        <a href="#follow-up" class="tag" data-category="follow-up">follow up</a>
     </div>
     
     <div class="separator"></div>
@@ -285,6 +286,13 @@
         <div class="section" data-category="youtube">
             <div class="section-title">youtube</div>
             <div class="video-grid" id="youtube-videos"></div>
+        </div>
+        
+        <div class="separator"></div>
+
+        <div class="section" data-category="shorts">
+            <div class="section-title">shorts</div>
+            <div class="video-grid" id="shorts-videos"></div>
         </div>
         
         <div class="separator"></div>
@@ -332,7 +340,16 @@
                 { type: 'youtube', id: 'L50IItT-Mmo', si: '7k2r4Lp6krizMkah' },
                 { type: 'youtube', id: '_d-bt3I2XI4', si: 'NKN5x_cdSnF_T1Me' },
             ],
+            'shorts': [
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/Drama%20Queen%20promo%201.mp4', vertical: true},
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/Promo%202.mp4', vertical: true},
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/Follow%20up%203.mp4', vertical: true},
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/Drama%20Queen%20promo%204.mp4', vertical: true},
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/%D0%A0%D0%B8%D0%BB%D1%81%20follow%20up%205%20.mp4 ', vertical: true},
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/shorts/Drama%20Queen%20promo%206.mp4', vertical: true},
+            ],
             'promo': [
+                { type: 'direct', url: 'https://pub-254c67bd105e4309adfbc2375c0923c5.r2.dev/promo/drama_queen_showreel.mp4'},
                 { type: 'youtube', id: '0g6axxsnNdk' },
                 { type: 'youtube', id: 'xByFGGXiSoo' },
                 { type: 'youtube', id: 'qZW25xPU9q4' },
@@ -440,41 +457,54 @@
             });
         }
 
+        function applyCategoryFilter(category) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                if (category === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    const sectionCategory = section.getAttribute('data-category');
+                    section.style.display = sectionCategory === category ? 'block' : 'none';
+                }
+            });
+            const separators = document.querySelectorAll('.separator');
+            separators.forEach(sep => {
+                sep.style.display = category === 'all' ? 'block' : 'none';
+            });
+        }
+
         function setupFilters() {
             const tags = document.querySelectorAll('.tag');
             const sections = document.querySelectorAll('.section');
-            
+
             tags.forEach(tag => {
                 tag.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
+                    window.location.hash = tag.getAttribute('href');
+
                     tags.forEach(t => t.classList.remove('active'));
                     tag.classList.add('active');
-                    
+
                     const category = tag.getAttribute('data-category');
-                    
-                    sections.forEach(section => {
-                        if (category === 'all') {
-                            section.style.display = 'block';
-                        } else {
-                            const sectionCategory = section.getAttribute('data-category');
-                            if (sectionCategory === category) {
-                                section.style.display = 'block';
-                            } else {
-                                section.style.display = 'none';
-                            }
-                        }
-                    });
-                    
-                    const separators = document.querySelectorAll('.separator');
-                    separators.forEach(sep => {
-                        sep.style.display = category === 'all' ? 'block' : 'none';
-                    });
+                    applyCategoryFilter(category);
                 });
             });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const tag = document.querySelector(`.tag[data-category="${hash.slice(1)}"]`);
+                if (tag) {
+                    tag.classList.add('active');
+                    applyCategoryFilter(tag.getAttribute('data-category'));
+                }
+            } else {
+                const tag = document.querySelector('.tag[data-category="all"]');
+                if (tag) {
+                    tag.classList.add('active');
+                }
+            }
             renderVideos();
             setupFilters();
         });
